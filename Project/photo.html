@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Submission</title>
+    <link rel="stylesheet" href="photo.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Submit Documents</h1>
+        <form action="/submit_documents" method="post" enctype="multipart/form-data">
+            <label for="photo">Photo:</label><br>
+            <input type="file" id="photo" name="photo" accept="image/*">
+            <input type="text" id="photo_text" readonly>
+            <button type="button" onclick="document.getElementById('photo').click()">Choose File</button><br><br>
+
+            <label for="aadhaar">Aadhaar Card:</label><br>
+            <input type="file" id="aadhaar" name="aadhaar" accept="image/*">
+            <input type="text" id="aadhaar_text" readonly>
+            <button type="button" onclick="document.getElementById('aadhaar').click()">Choose File</button><br><br>
+
+            <label for="pan">Pan Card:</label><br>
+            <input type="file" id="pan" name="pan" accept="image/*">
+            <input type="text" id="pan_text" readonly>
+            <button type="button" onclick="document.getElementById('pan').click()">Choose File</button><br><br>
+
+            <!-- Add option to use camera -->
+            <label for="camera">Take Photo:</label><br>
+            <input type="file" id="camera" name="camera" accept="image/*" capture="camera">
+            <input type="text" id="camera_text" readonly>
+            <button type="button" onclick="document.getElementById('camera').click()">Choose File</button><br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('photo').addEventListener('change', function() {
+            document.getElementById('photo_text').value = this.value;
+        });
+
+        document.getElementById('aadhaar').addEventListener('change', function() {
+            document.getElementById('aadhaar_text').value = this.value;
+        });
+
+        document.getElementById('pan').addEventListener('change', function() {
+            document.getElementById('pan_text').value = this.value;
+        });
+
+        document.getElementById('camera').addEventListener('change', function() {
+            document.getElementById('camera_text').value = this.value;
+        });
+    </script>
+</body>
+
+</html>
